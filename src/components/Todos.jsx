@@ -1,13 +1,19 @@
 import TodoItem from "./TodoItem"
 // test di bawah di di ambil parameter test line 7
-const Todos = ({test}) => {
+const Todos = ({todos, toggleCompleted}) => {
     return (
         <div style={styles.container}>
             {/* test di bawah dari property di app.jsx 
                 kegiatan di bawah adalah nilai dari map
             */}
-            {test.map((kegiatan) => {
-                return <TodoItem key={kegiatan.id} todo={kegiatan} />
+            {todos.map((todo) => {
+                return (
+                <TodoItem 
+                    key={todo.id} 
+                    todo={todo} 
+                    toggleCompleted={toggleCompleted} 
+                />
+                )
             })}
         </div>
     )
