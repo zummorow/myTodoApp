@@ -5,7 +5,7 @@ import Todos from "./components/Todos"
 function App () {
   // list merupakan pemanggilan nilai data
   // setlist : untuk men set nilai ke variabel list 
-  const [list, setList] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: 'Finish Progate React Course',
@@ -23,14 +23,22 @@ function App () {
     },
   ])
 
+  const toggleCompleted = (todoId) => {
+    const updatedTodos = todos.map((todo) => {
+      if (todo.id === todoId) {
+        todo.completed = !todo.completed
+      }
+      return todo
+    })
+    setTodos(updatedTodos)
+  }
+
+  
+
   return(
     <div style={style.container}>
-      <h1 style={style.title}>My Todo List</h1>
-      {/* todos warna merah merupakan nama component dari Todos.jsx
-          test warna biru apadalh props yg di kirim ke component
-          list adalah nilai dari test yg di ambil dari cont list
-      */}
-      <Todos test={list} />
+      <h1 style={style.title}>My Todo List</h1>     
+      <Todos todos={todos} toggleCompleted={toggleCompleted} />
     </div>
     
   )

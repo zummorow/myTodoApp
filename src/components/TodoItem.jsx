@@ -1,9 +1,9 @@
-const TodoItem = ({todo}) => {
+const TodoItem = ({todo, toggleCompleted}) => {
   
   // Definisikan function toggleCompleted di sini
-  const toggleCompleted = () => {
-    console.log('toggleCompleted function is called')
-  }
+  // const toggleCompleted = () => {
+  //   console.log('toggleCompleted function is called')
+  // }
 
   // mengubah css ketika nilai object true
   const getTodoTitleStyle = () => {
@@ -19,7 +19,7 @@ const TodoItem = ({todo}) => {
       <input 
         type="checkbox" 
         style={styles.checkbox} 
-        onChange={() => toggleCompleted()}
+        onChange={() => toggleCompleted(todo.id)}
       />
       <p style={getTodoTitleStyle()}>{todo.title}</p>
     </div>
