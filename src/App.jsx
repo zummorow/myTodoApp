@@ -5,7 +5,7 @@ import Todos from "./components/Todos"
 function App () {
   // list merupakan pemanggilan nilai data
   // setlist : untuk men set nilai ke variabel list 
-  const [todos, setList] = useState([
+  const [todos, setTodos] = useState([
     {
       id: 1,
       title: 'Finish Progate React Course',
@@ -30,7 +30,7 @@ function App () {
       }
       return todo
     })
-    // setTodos(updatedTodos)
+    setTodos(updatedTodos)
   }
 
   
