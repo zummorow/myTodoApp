@@ -1,6 +1,10 @@
-import React, {useState} from "react"
+import React, {useState, createContext} from "react"
 import Todos from "./components/Todos"
 import TodoForm from "./components/TodoForm"
+
+
+// Buatlah sebuah context
+export const TodoContext = createContext()
 
 function App () {
   // list merupakan pemanggilan nilai data
@@ -55,16 +59,19 @@ function App () {
   
 
   return(
-    <div style={style.container}>
-      <h1 style={style.title}>My Todo List</h1>  
-      <TodoForm addTodo={addTodo}/>   
-      <Todos todos={todos} toggleCompleted={toggleCompleted} deleteTodo={deleteTodo} />
-    </div>
+    // Bungkus app dengan provider dari context
+    <TodoContext.Provider value={{ toggleCompleted, deleteTodo }}>
+      <div style={styles.container}>
+        <h1 style={styles.title}>My Todo List</h1>
+        <TodoForm addTodo={addTodo} />
+        <Todos todos={todos} />
+      </div>
+    </TodoContext.Provider>
     
   )
 }
 
-const style = {
+const styles = {
   container : {
     textAlign: 'center',
     padding: '12px'

@@ -1,4 +1,10 @@
-const TodoItem = ({todo, toggleCompleted, deleteTodo}) => {
+// Lakukan import hook "useContext" dari React dan "TodoContext" dari App.jsx
+import React, {useContext} from "react"
+import { TodoContext } from "../App"
+
+// Hapus toggleCompleted dan deleteTodo dari props
+const TodoItem = ({ todo }) => {
+  const { toggleCompleted, deleteTodo } = useContext(TodoContext)
   
   // Definisikan function toggleCompleted di sini
   // const toggleCompleted = () => {
